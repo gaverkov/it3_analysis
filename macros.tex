@@ -1,0 +1,55 @@
+% BB-letters
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% set defined by a condition
+\newcommand{\setcond}[2]{\left\{ #1 \,:\, #2 \right\}}
+% scalar product
+\newcommand{\sprod}[2]{\left< #1 , #2 \right>}
+
+\newcommand{\Cov}{\operatorname{Cov}}
+\newcommand{\Cor}{\operatorname{Cor}}
+\newcommand{\tr}{\operatorname{tr}}
+
+
+\newcommand{\sign}{\operatorname{sign}}
+
+\newcommand{\bbar}[1]{\overline{#1}}
+
+% calligraphic letters
+\newcommand{\cU}{\mathcal{U}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cF}{\mathcal{F}}
+
+\newcommand{\TODO}[1]{\begin{center}\textbf{TODO:} #1\end{center}}
+\newcommand{\iu}{\mathbf{i}}
+
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\Arg}{\operatorname{Arg}}
+\newcommand{\vol}{\operatorname{vol}}
+
+\newcommand{\ball}{\mathbb{B}}
+\newcommand{\dA}{\Delta A}
+\newcommand{\db}{\Delta b}
+\newcommand{\dx}{\Delta x}
+
+\newcommand{\FR}{\operatorname{FR}} % Fourier-Reihen-Abbildung
+
+
+% differential
+\newcommand{\dd}{\operatorname{d}}
+\newcommand{\pdir}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\mixedpdir}[3]{\frac{\partial^2 #1}{\partial #2 \, \partial #3}} 
+\newcommand{\doublepdir}[2]{\frac{\partial^2 #1}{\partial #2^2}} 
+
+% special enumeration environments
+% (a),(b),(c)...
+\newenvironment{enuma}{\begin{enumerate}[label={(\alph*)}]}{\end{enumerate}}
+% (i),(ii),(iii),..
+\newenvironment{enumi}{\begin{enumerate}[label={(\roman*)}]}{\end{enumerate}}
