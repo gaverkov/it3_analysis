@@ -9,5 +9,5 @@ all:
 	rm output/*.log
 	rm output/*.toc
 	rm output/*.out
-	python3 split2chapters.py
-	mv it3pr_Kapitel_*.pdf output
+#	python3 split2chapters.py
+#	mv it3pr_Kapitel_*.pdf output
