@@ -24,7 +24,7 @@ jobs:
     - id: CloneRepo
       run: "git clone https://github.com/$OWNER/$REPONAME.git"
       
-    - id: Retrieving Pdfjam
+    - id: RetrievingPdfjam
       working-directory: ${{env.REPONAME}} 
       run: "wget https://raw.githubusercontent.com/rrthomas/pdfjam/master/bin/pdfjam ; chmod +x pdfjam ; cp pdfjam /usr/bin/"
       
