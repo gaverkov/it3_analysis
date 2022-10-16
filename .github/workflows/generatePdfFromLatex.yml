@@ -26,7 +26,7 @@ jobs:
       
     - id: RetrievingPdfjam
       working-directory: ${{env.REPONAME}} 
-      run: "wget https://raw.githubusercontent.com/rrthomas/pdfjam/master/bin/pdfjam ; chmod +x pdfjam ; cp pdfjam /usr/bin/"
+      run: "wget https://raw.githubusercontent.com/rrthomas/pdfjam/master/bin/pdfjam ; chmod +x pdfjam ; sudo cp pdfjam /usr/bin/"
       
     - id: GeneratePdfFiles
       working-directory: ${{env.REPONAME}} 
