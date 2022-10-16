@@ -1,11 +1,11 @@
 .PHONY: all
 all:
 	mkdir output ; true
-        mkdir tempout ; true
-        pdflatex -output-directory=tempout it3.tex
-        pdflatex -output-directory=tempout it3.tex
-        pdflatex -output-directory=tempout it3pr.tex
-        pdflatex -output-directory=tempout it3pr.tex
+	mkdir tempout ; true
+	pdflatex -output-directory=tempout it3.tex
+	pdflatex -output-directory=tempout it3.tex
+	pdflatex -output-directory=tempout it3pr.tex
+	pdflatex -output-directory=tempout it3pr.tex
 	rm tempout/*.aux
 	rm tempout/*.log
 	rm tempout/*.toc
