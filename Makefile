@@ -9,4 +9,4 @@ all:
 	rm output/*.log
 	rm output/*.toc
 	rm output/*.out
-	cd output ; python3 ../split2chapters.py
+	cd output ; python3 ../split2chapters.py ; true
