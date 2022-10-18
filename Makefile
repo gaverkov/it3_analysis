@@ -1,6 +1,6 @@
 .PHONY: all
 all:
-	mkdir -p output
+	mkdir output ; true
 	pdflatex -output-directory=output it3.tex
 	pdflatex -output-directory=output it3.tex
 	pdflatex -output-directory=output it3pr.tex
@@ -9,5 +9,4 @@ all:
 	rm output/*.log
 	rm output/*.toc
 	rm output/*.out
-#	python3 split2chapters.py
-#	mv it3pr_Kapitel_*.pdf output
+	cd output ; python3 ../split2chapters.py ; true
