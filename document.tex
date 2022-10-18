@@ -173,8 +173,33 @@ Die (klassische) \textbf{Mathematische Analysis} -- deren dieser Kurs gewidmet i
 	\end{itemize} 
 \end{defn} 
 
+\begin{bem}
+	Der Graph der Folge $a_n := 5 + (-1)^n / n$, welche gegen den Wert $5$ konvergiert. 
+\begin{center}
+	\includegraphics[width=0.7\textwidth]{code/grenzwert.pdf}
+\end{center} 
+\end{bem} 
+
 \begin{bem} 
 	Wir schauen uns den Begriff des Grenzwerts in Ruhe an. Die Bedingung $|a_n - a| < \epsilon$ können wir etwa als ``$a_n$ ist $\epsilon$-Approximation von $a$'' mit Worten beschreiben. Die Bedingung $n \ge n_0$ heißt ``$n$ muss groß genug sein'', mindestens so groß wie ein passend gewähltes $n_0$. Also beschreibt unsere Grenzwert-Definition die folgende Situation: egal welche Güte $\epsilon>0$ der Approximation des Wertes $a$ wir vorschreiben, wird diese Güte durch alle Glieder $a_n$ der Folge erreicht, bei denen der Index $n$ genügend groß ist. 
+\end{bem} 
+
+\begin{bem} Die Grenzwertbedingung 
+\[ \lim_{n \to \infty} a_n = a
+\] als eine quantifizierte Formel: 
+	\[
+			{\color{red} \forall \epsilon  \in \R_{>0} } \, {\color{blue} \exists n_0 \in \N } \, {\color{orange} \forall n \in \N : (n \ge n_0) \, \Rightarrow \,  } {\color{violet} |a_n - a| < \epsilon. }
+	\]
+	 {\color{red} Für jede Wahl  der positiven Genauigkeit} {\color{blue} gibt es einen Schwellenwert} {\color{orange} derart, dass für alle Indizes ab diesem Schwellenwert}	{\color{violet} die Glieder der Folge den Wert $a$ mit der gewünschten Genaugikeit approximieren}
+\end{bem} 
+
+\begin{bem} Die Bedingung, $a_n$ konvergiert nicht gegen $a$, heißt dementsprechend:  
+	\[
+	{\color{red} \exists \epsilon  \in \R_{>0} } \, {\color{blue} \forall n_0 \in \N } \, {\color{orange} \exists n \in \N : (n \ge n_0) \,  \wedge \,  } {\color{violet} |a_n - a| \ge  \epsilon. }
+	\]
+	{\color{red} Es gibt eine Wahl der Geauigkeit derart,} {\color{blue} dass nach jedem Index}  {\color{orange} ein weiterer mindestens so großer Index gefunden werden kann,} {\color{violet} für welchen das Folgenglied den Wert $a$ \textbf{nicht} mit der gewählten Genauigkeit approximiert}. 
+	
+	Mit anderen Worten: Für eine Wahl der Genauigkeit gibt es unendlich viele Folgenglieder, die den Wert $a$ mit der gewählten Genauigkeit \textbf{nicht} approximieren. 
 \end{bem} 
 
 \begin{bem}
