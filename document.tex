@@ -381,6 +381,7 @@ Hier die Folge $n+ 2 (-1)^n$.
 			\item[] {\color{red} \glqq$1^\infty$ \grqq: } $\lim_{n \to \infty} (a^n )^{b_n}$ mit $\lim_{n \to \infty} a _n = 1$ und $\lim_{n \to \infty} b_n = \infty$. 
 			\item[]  {\color{red} \glqq $\infty - \infty$ \grqq: } $\lim_{n \to \infty} (a_n -b_n)$ mit $\lim_{n \to \infty} a_n = \lim_{n \to \infty} b_n = \infty$. 
 			\item[] {\color{red} \glqq$0^0$ \grqq: } $\lim_{n \to \infty} (a_n )^{b_n}$ mit $\lim_{n \to \infty} a _n = 0$ und $\lim_{n \to \infty} b_n = 0$. 
+			\item[] {\color{red} \glqq$\infty^0$ \grqq: } $\lim_{n \to \infty} (a_n )^{b_n}$ mit $\lim_{n \to \infty} a _n = \infty$ und $\lim_{n \to \infty} b_n = 0$. 
 	\end{itemize} 
 	Grenzwerte für unbestimmte Ausdrücke lassen sich oft berechnen, indem man den die Unbestimmtheit des Ausdrucks durch äquivalente Umformungen auflöst und danach doch die Rechenregeln für Grenzwerte nutzen kann. 
 	
@@ -667,9 +668,21 @@ Genauso könnte man aber an der Stelle von $20$ einen beliebigen Wert vorgeben, 
 	\]
 	in welcher Glieder nicht von einem sondern von zwei Indizes $n,k$ abhängig sind. Das heißt, die Glieder sind nicht durch aufsteigend geordnete ganze Zahlen indexiert, sondern durch Paare aus $\N_0^2$. Für die Paare ganzer Zahlen haben wir aber keine feste Anordnung. Bei der Diskussion der absoluten Konvergenz haben wir aber festgestellt, dass die Anordnung der Glieder im Allgemeinen Auswirkungen auf den Wert der Reihe hat. Das bedeutet, dass man das Produkt von allgemeinen konvergenten Reihen nicht (sinnvoll) einführen kann. Wenn man sich aber auf die absolut konvergenten Reihen einschränkt, hat man das beschriebene Problem nicht, sodass die formale Summe $s$ durch eine absolut konvergente Reihe beschrieben werden kann, zum Beispiel so: 
 	\[
-		s:= \underbrace{a_0 b_0}_{c_0} + \underbrace{a_0 b_1 + a_1 b_0}_{c_1} + \underbrace{a_0 b_2 + a_1 b_1 + a_2 b_0}_{c_3} + \underbrace{a_3 b_0 + a_2 b_1 + a_1 b_2 + a_0 b_3}_{c_3} + \cdots  . 
+		s:= \underbrace{\color{red} a_0 b_0}_{c_0} + \underbrace{\color{blue} a_0 b_1 + a_1 b_0}_{c_1} + \underbrace{\color{orange} a_0 b_2 + a_1 b_1 + a_2 b_0}_{c_3} + \underbrace{\color{green} a_3 b_0 + a_2 b_1 + a_1 b_2 + a_0 b_3}_{c_3} + \cdots  . 
 	\]
 	Man zerlegt hier die Gesamtsumme der Werte $a_n b_k$ in Gruppen nach dem Wert von $n+k$. 
+	
+	\[
+	\begin{array}{rrrrrrc}
+		{\color{red} a_{0} b_{0} } & {\color{blue} a_{0} b_{1}} & {\color{orange} a_{0} b_{2} } & {\color{green} a_{0} b_{3}} & a_{0} b_{4} & a_{0} b_{5} & \cdots  \\
+		{\color{blue} a_{1} b_{0}} &{\color{orange}  a_{1} b_{1}} & {\color{green} a_{1} b_{2} } & a_{1} b_{3} & a_{1} b_{4} & a_{1} b_{5} & \cdots \\
+		{\color{orange} a_{2} b_{0} } & {\color{green} a_{2} b_{1}} & a_{2} b_{2} & a_{2} b_{3} & a_{2} b_{4} & a_{2} b_{5} & \cdots \\
+		{\color{green} a_{3} b_{0}} & a_{3} b_{1} & a_{3} b_{2} & a_{3} b_{3} & a_{3} b_{4} & a_{3} b_{5} & \cdots \\
+		a_{4} b_{0} & a_{4} b_{1} & a_{4} b_{2} & a_{4} b_{3} & a_{4} b_{4} & a_{4} b_{5} & \cdots \\
+		a_{5} b_{0} & a_{5} b_{1} & a_{5} b_{2} & a_{5} b_{3} & a_{5} b_{4} & a_{5} b_{5} & \cdots \\
+		\vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \ddots 
+	\end{array}
+\]
 \end{bem} 
 
 \begin{defn}[Produkt absolut konvergenter Reihen] Das \textbf{Cauchy-Produkt} von zwei absolut konvergenten Reihen $\sum_{k=0}^\infty a_k$ und $\sum_{k=0}^\infty b_k$ is als die Reihe
