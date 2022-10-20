@@ -161,6 +161,18 @@ Die (klassische) \textbf{Mathematische Analysis} -- deren dieser Kurs gewidmet i
 
 \section{Grenzwerte von Folgen} 
 
+\begin{bem}[Intuitive Beschreibung des Grenzwertes] 
+	$a_n$ geht gegen ein $a \in \R$, für $n \to \rightarrow$, heißt intuitiv: 
+	
+	\begin{itemize}
+			\item[] Als $n \in \N$ groß wird, kommt $a_n$ beliebig nah an $a$ ran. 
+	\end{itemize} 
+
+	Diese Beschreibung vermittelt die Idee und kann nützlich sein, mit ihr kann man aber nicht mathematisch exakt arbeiten, da es nicht in der formalen Sprache der Mathematik formuliert ist. Insbesondere besteht die Gefahr einer nicht-eindeutigen Interpretation. 
+	
+	Es gibt eine exakte mathematische Beschreibung, die man mit Hilfe von Ungleichungen und quantifizierten Prädikaten formulieren kann (Quantoren und Prädikate hatten wir in IT-1). 
+\end{bem} 
+
 \begin{defn}[Grenzwert einer Folge] 
 	Man sagt, dass eine Folge $(a_n)_{n \in \N}$ von reellen Zahlen gegen einen reellen Wert $a$ konvergiert wenn Folgendes gilt: für jedes $\epsilon>0$ existiert ein $n_0 \in \N$, sodass für alle $n \in \N$ mit $n \ge n_0$ die Ungleichung $|a_n - a| < \epsilon$ erfüllt ist. 
 	
@@ -291,54 +303,49 @@ Der Quotient $a_n = f_{n+1} / f_n$ der aufeinanderfolgenden Fibonacci-Zahlen ist
 	\begin{enuma}
 		\item Die Folge $a_n = n$ konvergiert gegen $\infty$, das schreibt man als $\lim_{n \to \infty} n = \infty$. 
 		\item  Die Folge $a_n = -n$ konvergiert gegen $-\infty$. Das schreibt man als $\lim_{n \to \infty} (-n) = -\infty$. 
+		\item $\lim_{n \to \infty} \ln n = \infty$. 
+		\item $\lim_{n \to \infty} (\ln n + (-1)^n) = \infty$. 
 		\item Die Folge $a_n = (-1)^n n$ ist divergent, geht aber weder gegen $\infty$ noch gegen, denn $a_n$ schwankt für große $n$ zwischen großen positiven Werten und betragsmäßig großen negativen Werten. Der Betrag $|a_n| = n$ aber konvergiert gegen $\infty$. 
 		\item Die Folge $a_n = ( 1 + (-1)^n) n$ schwankt für große $n$ zwischen $0$ und sehr großen Werten. Die Folge ist divergent und sie geht weder gegen $\infty$ noch gegen $-\infty$. 
 	\end{enuma}
 \end{bsp} 
 
-\begin{defn} 
-	Eine \textbf{Polynomialfunktion} ist eine Funktion der Form 
-	\[
-		f(x) = c_d x^d + \cdots + c_0 x^0
-	\] 
-	mit Koeffizienten $c_d,\ldots,c_0$ und $d \in \N_0$. Sind alle Koeffizienten von $f$ gleich $0$, so setzen man den Grad $\deg(f)$ gleich $-\infty$. Ist $c_d \ne 0$, so definiert man den Grad von $f$ durch $\deg(f) = d$ und nennt den Term $c_d x^d$ den \textbf{Leitterm} von $f$. 
-\end{defn} 
 
-\begin{bsp} {\ } 
-	\begin{enuma}
-		\item Der Leitterm von $2 x^3 - 7 x^2 +8 x - 6$ ist $2 x^3$. 
-		\item Der Leitterm von $(2x-1)^{10}$ ist $(2x)^{10}$. (Wieso?)
-	\end{enuma} 
-\end{bsp} 
+%\begin{bsp} {\ } 
+%	\begin{enuma}
+%		\item Der Leitterm von $2 x^3 - 7 x^2 +8 x - 6$ ist $2 x^3$. 
+%		\item Der Leitterm von $(2x-1)^{10}$ ist $(2x)^{10}$. (Wieso?)
+%	\end{enuma} 
+%\end{bsp} 
 
-\begin{bem} Eigentlich gibt es einen Unterschied zwischen Polynomen und Polynomialfunktionen. Polynome sind formale Ausdrücke und Polynomialfunktionen sind spezielle Abbildungen, aber im Kontext der Analysis ist dieser Unterschied nicht so wichtig, sodass wir Polynomialfunktionen auch einfach Polynome nennen werden. 
-\end{bem} 
+%\begin{bem} Eigentlich gibt es einen Unterschied zwischen Polynomen und Polynomialfunktionen. Polynome sind formale Ausdrücke und Polynomialfunktionen sind spezielle Abbildungen, aber im Kontext der Analysis ist dieser Unterschied nicht so wichtig, sodass wir Polynomialfunktionen auch einfach Polynome nennen werden. 
+%\end{bem} 
 
-\begin{thm}
-	Seien $f, g$ Polynome mit Koeffizienten in $\R$ und sei $g$ nicht identisch gleich null. Dann 
-	gilt 
-	\[
-		\lim_{n \to \infty} \frac{f(n)}{g(n)}  = \lim_{n \to \infty} \frac{ (\text{Leitterm von $f$})(n)}{(\text{Leitterm von $g$})(n)}. 
-	\]
-\end{thm} 
+%\begin{thm}
+%	Seien $f, g$ Polynome mit Koeffizienten in $\R$ und sei $g$ nicht identisch gleich null. Dann 
+%	gilt 
+%	\[
+%		\lim_{n \to \infty} \frac{f(n)}{g(n)}  = \lim_{n \to \infty} \frac{ (\text{Leitterm von $f$})(n)}{(\text{Leitterm von $g$})(n)}. 
+%	\]
+%\end{thm} 
 
 \begin{bsp} 
 	{\ } 
 	\begin{enuma} 
 		\item \[
-			\lim_{n \to \infty} \frac{5 n^3 - 2n^2 + 7}{10 n^3 + 3 n^2+ 4 n+5}  = \lim_{n \to \infty} \frac{5 n^3}{10 n^3} = \frac{5}{10} = \frac{1}{2}. 
+			\lim_{n \to \infty} \frac{5 n^3 - 2n^2 + 7}{10 n^3 + 3 n^2+ 4 n+5}.
 		\]
 		\item Der Leitterm des Produkts ist Produkt der Leitterme. Darauf basierend haben wir: 
 		\[
-			\lim_{n \to \infty} \frac{(2 n^2 + 1 )^3 }{(5 n^3 + n^2 - 1)^2} = \lim_{n \to \infty} \frac{(2 n^2)^3}{ (5 n^3)^2} = \frac{8}{25}.  
+			\lim_{n \to \infty} \frac{(2 n^2 + 1 )^3 }{(5 n^3 + n^2 - 1)^2}.
 		\]
 		\item 
 			\[
-				\lim_{n \to \infty} \frac{2 n + 1}{3  n^2 - 7 n + 6} = \lim_{n \to \infty} \frac{2n}{3 n^2} = 0.  
+				\lim_{n \to \infty} \frac{2 n + 1}{3  n^2 - 7 n + 6}.
 		\]
 		\item 
 		\[
-			\lim_{n \to \infty} \frac{n^2 + 100}{3 n-1000} = \lim_{n \to \infty} \frac{n^2}{3 n}  = \infty. 
+			\lim_{n \to \infty} \frac{n^2 + 100}{3 n-1000} .
 		\]
 	\end{enuma} 
 \end{bsp} 
@@ -355,8 +362,22 @@ Der Quotient $a_n = f_{n+1} / f_n$ der aufeinanderfolgenden Fibonacci-Zahlen ist
 
 \begin{bem}
 	\textcolor{red}{\textbf{WARNUNG!}}
-	Wenn man mit Folgen mit Hilfe der obigen Regeln rechnet, soll man das Folgende beachten: Es kann passieren, dass $a_n + b_n$ konvergiert, auch wenn weder $a_n$ noch $b_n$ konvergieren. Zum Beispiel bei $a_n = - b_n = (-1)^n$. Die Summe $a_n + b_n = 0$ konvergiert gegen $0$, aber $a_n$ und $b_n$ konvergieren nicht. Wenn man also einer Folge etwa in die Summe von zwei Folgen ungünstig zerlegt hat, sodass die beiden Folgen divergent sind, heißt es noch lange nicht, dass die zugrundeliegende Folge divergent ist!
+	Wenn man mit Folgen mit Hilfe der obigen Regeln rechnet, soll man die Voraussetzungen beachten. Es kann passieren, dass $a_n + b_n$ konvergiert, auch wenn weder $a_n$ noch $b_n$ konvergieren. Zum Beispiel bei $a_n = - b_n = (-1)^n$. Die Summe $a_n + b_n = 0$ konvergiert gegen $0$, aber $a_n$ und $b_n$ konvergieren nicht. Wenn man also einer Folge etwa in die Summe von zwei Folgen ungünstig zerlegt hat, sodass die beiden Folgen divergent sind, heißt es noch lange nicht, dass die zugrundeliegende Folge divergent ist!
 \end{bem} 
+
+\begin{bem}[Unbestimmte Ausdrücke] 
+	Interessant wird die Berechnung von Grenzwerten, in den Fällen, wo die vorigen Rechenregeln nicht eingesetzt werden können, weil die sogenannten unbestimmten Ausdrücke vorliegen. Dazu gehören z.B.: 
+	\begin{itemize} 
+			\item[] {\color{red} \glqq $\frac{0}{0}$ \grqq:}  $\lim_{n \to \infty} \frac{a_n}{b_n}$ mit $\lim_{n \to \infty} a_n = \lim_{n \to \infty} b_n= 0$. 
+			\item[] {\color{red} \glqq$\frac{\infty}{\infty}$ \grqq:}  $\lim_{n \to \infty} a_n  = \infty $ und $\lim_{n \to \infty} b_n  = \infty$. 
+			\item[] {\color{red} \glqq$1^\infty$ \grqq: } $\lim_{n \to \infty} (a^n )^{b_n}$ mit $\lim_{n \to \infty} a _n = 1$ und $\lim_{n \to \infty} b_n = \infty$. 
+			\item[]  {\color{red} \glqq$\infty - \infty$ \grqq: } $\lim_{n \to \infty} a_n = \lim_{n \to \infty} b_n = \infty$. 
+	\end{itemize} 
+	Grenzwerte für unbestimmte Ausdrücke lassen sich oft berechnen, indem man den die Unbestimmtheit des Ausdrucks durch äquivalente Umformungen auflöst und danach doch die Rechenregeln für Grenzwerte nutzen kann. 
+	
+	Eine weitere Technik, die helfen kann, ist die sogenannte Regel von l'Hospital, die auf dem Differenzieren basiert. 
+\end{bem} 
+
 
 
 \begin{defn}[Teilfolge und ihr Grenzwert] 
@@ -883,6 +904,15 @@ mit den Gliedern $c_0,c_1,c_2,\ldots$ definiert.
 \begin{thm}
 	Komposition, Produkt, Quotient und Summe stetiger Funktion sind stetige Funktionen. 
 \end{thm} 
+
+\begin{defn} 
+	Eine \textbf{Polynomialfunktion} ist eine Funktion der Form 
+	\[
+	f(x) = c_d x^d + \cdots + c_0 x^0
+	\] 
+	mit Koeffizienten $c_d,\ldots,c_0$ und $d \in \N_0$. Sind alle Koeffizienten von $f$ gleich $0$, so setzen man den Grad $\deg(f)$ gleich $-\infty$. Ist $c_d \ne 0$, so definiert man den Grad von $f$ durch $\deg(f) = d$ und nennt den Term $c_d x^d$ den \textbf{Leitterm} von $f$. 
+\end{defn} 
+
 
 \begin{thm} Die folgenden Funktionen sind stetig: 
 	\begin{enuma}
