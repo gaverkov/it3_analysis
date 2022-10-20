@@ -246,7 +246,7 @@ Der Quotient $a_n = f_{n+1} / f_n$ der aufeinanderfolgenden Fibonacci-Zahlen ist
 		\item \textbf{nach unten beschränkt}, wenn für eine Konstante $c$ die Ungleichung $a_n \ge c$ für alle $n$ erfüllt ist. 
 		\item \textbf{beschränkt}, wenn die Folge nach oben sowie nach unten beschränkt ist; 
 		\item \textbf{monoton steigend}, wenn $a_n \le a_{n+1}$ für alle $n$ erfüllt ist;
-		\item \textbf{strikt monoton steigend}, wenn $a_n > a_{n+1}$ für alle $n$ erfüllt ist;
+		\item \textbf{strikt monoton steigend}, wenn $a_n < a_{n+1}$ für alle $n$ erfüllt ist;
 		\item \textbf{monoton fallend}, wenn $a_n \ge a_{n+1}$ für alle $n$ erfüllt; 
 		\item \textbf{strikt monoton fallend}, wenn $a_n > a_{n+1}$ für alle $n$ erfüllt ist; 
 		\item \textbf{monoton}, wenn die Folge monoton steigend oder monoton fallend ist. 
@@ -335,7 +335,7 @@ Der Quotient $a_n = f_{n+1} / f_n$ der aufeinanderfolgenden Fibonacci-Zahlen ist
 		\item \[
 			\lim_{n \to \infty} \frac{5 n^3 - 2n^2 + 7}{10 n^3 + 3 n^2+ 4 n+5}.
 		\]
-		\item Der Leitterm des Produkts ist Produkt der Leitterme. Darauf basierend haben wir: 
+		\item 
 		\[
 			\lim_{n \to \infty} \frac{(2 n^2 + 1 )^3 }{(5 n^3 + n^2 - 1)^2}.
 		\]
@@ -356,7 +356,7 @@ Der Quotient $a_n = f_{n+1} / f_n$ der aufeinanderfolgenden Fibonacci-Zahlen ist
 		\item $\lim_{n \to \infty} (a_n + b_n) = \lim_{n \to \infty} a_n + \lim_{n \to \infty} b_n $
 		\item $\lim_{n \to \infty} (a_n \cdot b_n) = ( \lim_{n \to \infty} a_n) \cdot (\lim_{n \to \infty} b_n)$. 
 		\item $\lim_{n \to \infty} b_n \ne 0$ $\Longrightarrow$ $\lim_{n \to \infty} \frac{a_n}{b_n} = \frac{\lim_{n \to \infty} a_n}{\lim_{n \to \infty} b_n}$. 
-		\item $a_n \ge 0$ für alle $n \in \N$ $\Longrightarrow$ $\lim_{n \to \infty} a_n^{b_n} = (\lim_{n \to \infty} a_n )^{\lim_{n \to \infty} b_n}$. 
+		\item Wenn $a_n \ge 0$ für alle $n \in \N$ und die Grenzwerte $\lim_{n \to \infty} a_n$ und $\lim_{n \to \infty} b_n$ sind nicht beide gleich $0$ $\Longrightarrow$ $\lim_{n \to \infty} a_n^{b_n} = (\lim_{n \to \infty} a_n )^{\lim_{n \to \infty} b_n}$. 
 	\end{enuma} 
 \end{thm} 
 
@@ -369,9 +369,10 @@ Der Quotient $a_n = f_{n+1} / f_n$ der aufeinanderfolgenden Fibonacci-Zahlen ist
 	Interessant wird die Berechnung von Grenzwerten, in den Fällen, wo die vorigen Rechenregeln nicht eingesetzt werden können, weil die sogenannten unbestimmten Ausdrücke vorliegen. Dazu gehören z.B.: 
 	\begin{itemize} 
 			\item[] {\color{red} \glqq $\frac{0}{0}$ \grqq:}  $\lim_{n \to \infty} \frac{a_n}{b_n}$ mit $\lim_{n \to \infty} a_n = \lim_{n \to \infty} b_n= 0$. 
-			\item[] {\color{red} \glqq$\frac{\infty}{\infty}$ \grqq:}  $\lim_{n \to \infty} a_n  = \infty $ und $\lim_{n \to \infty} b_n  = \infty$. 
+			\item[] {\color{red} \glqq$\frac{\infty}{\infty}$ \grqq:}   $\lim_{n \to \infty} \frac{a_n}{b_n}$ mit $\lim_{n \to \infty} a_n  = \infty $ und $\lim_{n \to \infty} b_n  = \infty$. 
 			\item[] {\color{red} \glqq$1^\infty$ \grqq: } $\lim_{n \to \infty} (a^n )^{b_n}$ mit $\lim_{n \to \infty} a _n = 1$ und $\lim_{n \to \infty} b_n = \infty$. 
-			\item[]  {\color{red} \glqq$\infty - \infty$ \grqq: } $\lim_{n \to \infty} a_n = \lim_{n \to \infty} b_n = \infty$. 
+			\item[]  {\color{red} \glqq $\infty - \infty$ \grqq: } $\lim_{n \to \infty} (a_n -b_n)$ mit $\lim_{n \to \infty} a_n = \lim_{n \to \infty} b_n = \infty$. 
+			\item[] {\color{red} \glqq$0^0$ \grqq: } $\lim_{n \to \infty} (a_n )^{b_n}$ mit $\lim_{n \to \infty} a _n = 0$ und $\lim_{n \to \infty} b_n = 0$. 
 	\end{itemize} 
 	Grenzwerte für unbestimmte Ausdrücke lassen sich oft berechnen, indem man den die Unbestimmtheit des Ausdrucks durch äquivalente Umformungen auflöst und danach doch die Rechenregeln für Grenzwerte nutzen kann. 
 	
