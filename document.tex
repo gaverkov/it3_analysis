@@ -810,7 +810,7 @@ mit den Gliedern $c_0,c_1,c_2,\ldots$ definiert.
 \end{bsp} 
 
 \begin{thm}[Quotientenkriterium für Divergenz] 
-	Gibt es für $\sum_{k=0}^n a_k$  Werte $k_0 \in \N$ und $q> 1$ derart, dass $\frac{|a_{k+1}|}{|a_k|} \ge q$ für alle $k \ge k_0$ erfüllt ist, dann ist diese Reihe divergent. 
+	Gibt es für $\sum_{k=0}^\infty a_k$  Werte $k_0 \in \N$ und $q> 1$ derart, dass $\frac{|a_{k+1}|}{|a_k|} \ge q$ für alle $k \ge k_0$ erfüllt ist, dann ist diese Reihe divergent. 
 \end{thm} 
 
 \begin{thm}[Quotientenkriterium für Konvergenz in der Grenzwertform]
@@ -829,7 +829,7 @@ mit den Gliedern $c_0,c_1,c_2,\ldots$ definiert.
 \end{bsp} 
 
 \begin{thm}[Quotientenkriterium für die Divergenz in der Grenzwertform]
-	Gilt für die Reihe $\sum_{k=0}^n a_k$ die Ungleichung 
+	Gilt für die Reihe $\sum_{k=0}^\infty a_k$ die Ungleichung 
 	\[
 	\lim_{k \to \infty} \frac{|a_{k+1}|}{|a_k|} > 1,
 	\]
@@ -1448,13 +1448,24 @@ Differentialrechnung für Funktionen einer Variablen
 
 \section{Monotonie und Extremwerte} 
 
+\begin{defn}
+	Eine Funktion $f : X \to \R$ auf $X \subseteq \R$ heißt: 
+	\begin{enuma}
+		\item \emph{monoton steigend}, wenn für alle $x, y \in X$ mit $x \le y$ die Ungleichung $f(x) \le f(y)$ erfüllt ist; 
+		\item \emph{strikt monoton steigend}, wenn für alle $x, \in X$ mit $x<y$ die Ungleichung $f(x)<f(y)$ erfüllt ist;
+		\item \emph{monoton fallend}, wenn für alle $x,y \in X$ mit $x \le y$ die Ungleichung $f(x) \ge f(y)$ erfüllt ist;
+		\item \emph{strikt monoton fallend}, wenn für alle $x, y \in X$ mit $x<y$ die Ungleichung $f(x)> f(y)$ erfüllt ist. 
+	\end{enuma} 
+\end{defn} 
 
 \begin{thm} Für eine differenzierbare Funktion $f: I \to \R$  auf einem Intervall $I$ sind die folgenden Bedingungen äquivalent: 
 	\begin{enumi} 
 		\item $f$ ist monoton steigend (bzw. fallend) 
-		\item $f'$ ist nichtnegativ (bzw. nichtpositiv) 
+		\item $f'$ ist nicht-negativ (bzw. nicht-positiv) 
 	\end{enumi} 
 \end{thm} 
+
+
 
 \begin{defn}[globale Extrema] 
 	Sei $f : X \to \R$. 
@@ -1518,7 +1529,7 @@ Differentialrechnung für Funktionen einer Variablen
 	\]
 	Das \textbf{Infimum} von $f$ auf $X$ ist 
 	\[
-		\inf_{x \in X} f(x)  \ :=  \ \text{die größte obere Schranke von $f : X \to \R$}.
+		\inf_{x \in X} f(x)  \ :=  \ \text{die größte untere Schranke von $f : X \to \R$}.
 	\]
 \end{defn} 
 
