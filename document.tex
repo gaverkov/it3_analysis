@@ -1458,13 +1458,24 @@ Differentialrechnung für Funktionen einer Variablen
 	\end{enuma} 
 \end{defn} 
 
-\begin{thm} Für eine differenzierbare Funktion $f: I \to \R$  auf einem Intervall $I$ sind die folgenden Bedingungen äquivalent: 
-	\begin{enumi} 
-		\item $f$ ist monoton steigend (bzw. fallend) 
-		\item $f'$ ist nicht-negativ (bzw. nicht-positiv) 
-	\end{enumi} 
+\begin{thm} Sei $f: I \to \R$ differentierbare Funktion auf einem offenen Intervall $I$. Dann gilt: 
+	\begin{enuma} 
+		\item $f$ monoton steigend $\Leftrightarrow$ $f'$ nicht-negativ.
+		\item $f'$ monoton fallend $\Leftrightarrow$ $f'$ nicht-positiv. 
+	\end{enuma} 
 \end{thm} 
 
+\begin{bem}[Begründung der Richtungen ``$\Rightarrow$'']
+	Sei $a \in I$. 
+	
+	Ist $f$ monoton steigend, so gilt $\frac{f(x) - f(a)}{x-a} \ge 0$ für alle $x \in I$ mit $x \ne a$. Also ist
+	\[
+		f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x-a},
+	\]
+	als der Grenzwert einer nicht-negativen Ausdrucks, nicht-negativ. 
+	
+	Analog ist bei einer monoton fallenden Funktion $f$ die Ableitung $f'(a)$, als der Grenzwert eines nicht-positiven Ausdrucks, nicht-positiv. 
+\end{bem} 
 
 
 \begin{defn}[globale Extrema] 
@@ -1711,47 +1722,56 @@ Differentialrechnung für Funktionen einer Variablen
 
 
 \begin{defn} 
-	Für eine Funktion $f : X \to \R$ auf $X \subseteq \R$ wird das \textbf{Taylor-Polynom} von $f$ der Ordnung $n$ bzgl. des Entwicklungspunkts $a$ durch 
+	Für eine Funktion $f : X \to \R$ auf $X \subseteq \R$, die an einer Stelle $a \in X$ $n$-mal differenzierbar ist, wird das \textbf{Taylor-Polynom} von $f$ der Ordnung $n$ bzgl. des Entwicklungspunkts $a$ durch 
 	\[
 		T_n(x) := \sum_{k=0}^n \frac{f^{(k)}(a)}{k!} (x-a)^k
 	\]
-	definiert. 
+	definiert. Die Funktion 
+	\[
+		R_n(x) := f(x) - T_n(x)
+	\] nennt man das \textbf{Restglied} der Taylor-Entwicklung der Ordnung $n$ an der Stelle $a$. 
 	
-	Die Funktion $R_n(x) = f(x) - T_n(x)$ nennt man das \textbf{Restglied} der Taylor-Entwicklung der Ordnung $n$ an der Stelle $a$. 
-	
-	Die Potenzreihe 
+	Ist $f$ beliebig oft an der Stelle $a$ differenzierbar, so nennt man die Potenzreihe 
 	\[
 		T_\infty(x) := \sum_{k=0}^\infty \frac{f^{(k)}(a)}{k!} (x-a)^k
 	\]
-	nennt man die \textbf{Taylor-Reihe} von $f$ bzgl. des Entwicklungspunkts $a$. 
+	die \textbf{Taylor-Reihe} von $f$ bzgl. des Entwicklungspunkts $a$. 
 \end{defn} 
 
-\begin{bem}
-	Was haben $f(x)$ das Polynom $T_n(x)$ gemeinsam? Die Ableitungen an der Stelle $a$. Wenn man die Ableitungen bis zur Ordnung $n$ von $T_n(x)$ ausrechnet, stellt man fest: 
-	\begin{align*}
+\begin{bem}[$T_n(x)$ aus einer anderen Perspektive]
+	Was haben $f(x)$ das Polynom $T_n(x)$ gemeinsam? Die Ableitungen an der Stelle $a$. Wenn man die Ableitungen bis zur Ordnung $n$ von $T_n(x)$ ausrechnet, stellt man fest, dass sie mit den jeweiligen Ableitungen von $f$ übereinstimmen: 
+	\begin{align} \label{T_n:bedingung} 
 		T_n^{(i)}(a) & = f^{(i)}(a)  & & \text{für} \ i=0,\ldots,n.
-	\end{align*} 
-	Dadurch, dass das Polynom $T_n(x)$ gleiche Ableitungen wie $f(x)$ an der Stelle $a$ hat, sieht es um die Stelle $a$ ziemlich ähnlich zu $f(x)$ aus. Diese informelle Bemerkung wird im Folgenden genau formuliert.
+	\end{align} 
+	$T_n$ ist innerhalb von allen Polynomen vom Grad höchstens $n$ durch die Bedingung \eqref{T_n:bedingung} eindeutig bestimmt. 
 \end{bem} 
 
 
-\begin{defn}[O-Notation  für $x\to a$]  
+\begin{bem}
+	Wir werden feststellen, dass unter gewissen Voraussetzung der Unterschied zwischen $T_n(x)$ und $f(x)$ sehr klein ist, wenn $x$ nah am Entwicklungspunkt $a$ liegt. 
+\end{bem} 
+
+\begin{defn}[$O$-Notation  für $x\to a$]  
 	Seien $f,g : X \to \R$ Funktionen auf $X \subseteq \R$ und $a$ Häufungspunkt von $X$. Man schreibt, 
 	\[
 		f(x) = O(g(x)), \qquad \text{für} \ x \to a,
 	\] 
+	und sagt dabei $f(x)$ hat die \textbf{Ordnung O} von $g(x)$ für $x \to a$ hat, 
 	wenn eine Konstante $C\ge 0$ und ein $\delta > 0$ existieren, für welche die Ungleichung 
 	\[
 		|f(x)| \le C |g(x)| 
 	\]
 	für alle $x \in X$ mit $|x-a| < \delta$ erfüllt ist. 
-	
-	Mit Worten: $f(x)$ hat die \textbf{Ordnung O} von $g(x)$ für $x \to a$.  
+		
+	Formale Beschreibung: $f(x) = O(g(x))$ heißt
+	\[
+		\exists \, C \in \R_{\ge 0} \ \exists \, \delta \in \R_{>0} \ \forall \, x \in X \,:\, |x-a| < \delta \Rightarrow |f(x)| \le C |g(x)|.
+	\]
 \end{defn} 
 
 
 \begin{bem}
-	Sie kennen bestimmt verschiedene Formen der asymptosche Notation für Funktionen  in einer Variablen $n$ aus $\N$ aus der Informatik, da diese Notation bei der Analyse der Laufzeit von Algorithmen sehr oft verwendet ist. All die Bezeichnungen, die man bei der Analyse der Laufzeit von Algorithmen benutzt, kann man auch für Funktionen in einer reellwertigen Variablen $x$ für $x \to a$ einführen. 
+	Sie kennen bestimmt verschiedene Formen der asymptotischen Notation für Funktionen  in einer Variablen $n$ aus $\N$ aus der Informatik, da diese Notation bei der Analyse der Laufzeit von Algorithmen sehr oft verwendet ist. All die Bezeichnungen, die man bei der Analyse der Laufzeit von Algorithmen benutzt, kann man auch für Funktionen in einer reellwertigen Variablen $x$ für $x \to a$ einführen. 
 	
 	Neben der O-Notation hat man zum Beispiel auch $\Omega$-, $\Theta$- und $o$-Notation für $x \to a$. Die Bedingung $f(x) = o(g(x))$ für $x \to a$ heißt zum Beispiel, dass 
 	\[
@@ -1905,12 +1925,21 @@ Differentialrechnung für Funktionen einer Variablen
 	den \textbf{Konvergenzradius}. 
 \end{defn} 
 
+
 \begin{bem}
 	Der Konvergenzradius ist ein Wert $\rho \in [0,\infty]$. Wenn man $\rho=0$ hat, dann konvergiert die Reihe nur für $x=c$. 
 \end{bem} 
 
 \begin{bsp}
-	Für $\sum_{k=0}^\infty x^k$ ist der Konvergenzbereich $X = (-1,1)$ und somit der Konvergenzradius $\rho = \sup \setcond{|x|}{x \in X} = 1$.  Im Folgenden Theorem wir behauptet, dass jeder Konvergenzbereich ein Intervall ist, das $c$ genau in der Mitte hat...
+	Für $\sum_{k=0}^\infty x^k$ ist der Konvergenzbereich $X = (-1,1)$ und somit der Konvergenzradius $\rho = \sup \setcond{|x|}{x \in X} = 1$.  
+
+	Hier ein Bild mit den Graphen der Logarithmen der Partialsummen $\sum_{k=0}^n x^k$ für einige $n$ im Bereich von $100$ bis $200$: 
+ \begin{center} 	
+			\includegraphics[width=0.5\textwidth]{pics/konvergenzradius_potenzreihe.pdf}
+	\end{center} 
+	Wie man sieht, kommt es bei der Entfernung $1$ vom Entwicklungspunkt zu einer Art Explosion  - es findet der Übergang von Konvergenz zur Nicht-Konvergenz statt. Der Logarithmus  wurde  genommen, um die Explosion graphisch darstellen zu können (sonst wäre das Wachstum der Funktionen zu schnell). 
+	
+	Im Folgenden Theorem wir behauptet, dass jeder Konvergenzbereich ein Intervall ist, das $c$ genau in der Mitte hat...
 \end{bsp} 
 
 \begin{thm}
