@@ -1623,6 +1623,13 @@ Differentialrechnung für Funktionen einer Variablen
 	Eine Funktion $f$ nennt man \textbf{konkav}, wenn die Funktion $-f$ konvex ist. 
 \end{defn} 
 
+\begin{bsp}
+	$e^x$ is konvex: 
+		\begin{center}
+		\includegraphics[width=0.5\textwidth]{pics/konvex.pdf}
+		\end{center} 
+\end{bsp} 
+
 \begin{thm} Für eine differenzierbare Funktion $f : I \to \R$  auf einem Intervall $I$ sind die folgenden Bedingungen äquivalent: 
 	\begin{enumi}
 		\item $f$ ist konvex,
@@ -1630,12 +1637,29 @@ Differentialrechnung für Funktionen einer Variablen
 	\end{enumi}
 \end{thm} 
 
+\begin{bsp}
+	Beispiel für $e^x$: 
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{pics/konvex_1.pdf}
+\end{center} 
+	
+\end{bsp} 
+
 \begin{thm} Für eine zweimal differenzierbare Funktion $f : I \to \R$ auf einem Intervall $I$ sind die folgenden Bedingungen äquivalent: 
 	\begin{enumi} 
 		\item $f$ ist konvex, 
 		\item $f'' \ge 0$ auf $I$.
 	\end{enumi} 
 \end{thm} 
+
+
+
+\begin{bem}
+	Illustration zum vorigen Theorem am Beispiel $f(x) = e^x$. Die gezeichneten Parabeln hängen von $c \in \R$ und sind Graphen von Funktion mit dem selben Wert, der ersten und der zweiten Ableitung an der Stelle $c$ wie $f$: 
+	\begin{center}
+			\includegraphics[width=0.5\textwidth]{pics/konvex_2.pdf}
+	\end{center} 
+\end{bem} 
 
 \section{Der Mittelwertsatz der Differentialrechnung} 
 
@@ -1645,6 +1669,26 @@ Differentialrechnung für Funktionen einer Variablen
 		f'(\xi) = \frac{f(b) - f(a)}{b-a}. 
 	\]
 \end{thm} 
+
+\begin{bem}
+Illustration für $f (x) := e^x -3x^2 + 2 x$ auf $[-1,4]$:
+\begin{center}
+\includegraphics[width=0.5\textwidth]{pics/mittelwertsatz.pdf}
+\end{center} 
+\end{bem} 
+
+\begin{bem}[Wieso existiert das $\xi$ aus dem Mittelwertsatz?]
+	Wir bilden zur $f$ die Funktion für Sekante bzgl. der Endpunkte $a$ und $b$: 
+	\begin{align*}
+			s(x) & = f(a) + k (x-a)  & & \text{mit}  \ k := \frac{f(b) - f(a)}{b-a}. 
+	\end{align*} 
+	$f-s$ hat Wert $0$ an den Endpunkten $a$ und $b$. 
+	Irgendwo im Inneren wird ein Extremum von $f-s$ erreicht. 
+	Also $\xi$ können wir eine Stelle in $(a,b)$ fixieren, wo $f-s$ das Extremum erreicht, vgl. das folgende Bild: 
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{pics/mittelwertsatz2.pdf}
+\end{center} 
+\end{bem} 
 
 \begin{bem}
 	Der Satz ist eine weitere Berechtigung für die Approximation der Ableitung durch einen Quotienten.
@@ -1673,12 +1717,14 @@ Differentialrechnung für Funktionen einer Variablen
 \begin{bem} 
 	Wir betrachten eine differentierbare Funktion $f : I \to \R$ auf einem Intervall und fixieren ein $a$ aus dem inneren von $I$. 
 	Machen wir das $b$ variabel, und bezeichen es als $x$. Dann ist das $\xi$ zwischen $a$ und $x$ abhängig von der Wahl von $x$, und wir bezeichnen es als $\xi_x$. Das vorige Theorem ergibt: 
-	\begin{align*}
-		f'(\xi_x)  & = \frac{f(x)-f(a)}{x-a}  & & |\ \Rightarrow 
-		\\ f(x) & = f(a) + f'(\xi_x) (x-a) & & |\text{ Nach $f(x)$ aufgelöst} 
-	\end{align*}
-	Dies ist die Taylorentwicklung der Ordnung $0$. 
-	Dies ist ein Spezialfall einer viel allgemeineren Formel, die wir in Kürze diskutieren werden. 
+	\[
+	\begin{array}{rcl|l}
+		f'(\xi_x)  & =& \frac{f(x)-f(a)}{x-a} \hspace{7em} & \ \Rightarrow 
+		\\ f(x) & = & f(a) + f'(\xi_x) (x-a) &  \text{ Nach $f(x)$ aufgelöst} 
+	\end{array}
+	\]
+	Dies ist enthält die Darstellung des Restglieds der sogenannten Taylorentwicklung der Ordnung $0$. 
+	Bei Höheren Ordnungen enthält man eine viel allgemeinere Formel. Mehr dazu später. 
 \end{bem} 
 
 \chapter{Taylor- und Potenzreihen} 
