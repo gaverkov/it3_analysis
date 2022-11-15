@@ -222,6 +222,15 @@ Die (klassische) \textbf{Mathematische Analysis} -- deren dieser Kurs gewidmet i
 	Der Begriff des Grenzwerts einer Folge kann ganz analog über den Mengen eingeführt werden, in denen ein Abstandsbegriff festgelegt ist: die Bedingung $|a_n - a| < \epsilon$, dass der Abstand von $a_n$ und $a$. Für die komplexen Zahlen ist der Abstand von zwei  Zahlen ebenso der Betrag der Differenz dieser Zahlen. Also kann unsere Definition des Grenzwerts ohne Änderungen für folgen komplexer Zahlen benutzt werden. 
 \end{bem} 
 
+\begin{bem}[Die Rolle des Formalismus] 
+	Man bekommt oft die folgende Rückmeldung zu formalen Definitionen: 
+	``Wieso braucht man den Formalismus, wie z.B. die formale Beschreibung des Grenzwerts mit Hilfe von $\epsilon$ und $n_0$?'' Der Formalismus ergänzt und präzisiert unsere Intuition. Die erfolgreiche Bearbeitung der konkreten Aufgaben erfordert in der Regel beides - sowohl das intuitive Verständnis als auch die Präzision und den Formalismus. 
+	
+	Hier eine konkrete Aufgabe, welche diese These belegen soll: Sei $(x_n)_{n \in \N}$ eine Folge reeller Zahlen und sei $(y_n)_{n \in \N}$ die Folge, welche aus der Folge $(x_n)_{n \in \N}$ entsteht, und rekursiv durch $y_1 := x_1$ und $y_n := \frac{1}{2} y_{n-1} + \frac{1}{2} x_n$ bei $n \ge 2$ definiert ist. Etwas allgemeinere Form der Herleitung von Folgen aus einer gegebenen Folge benutzt man beim Trading mit Wertpapieren (unsere Folge $(y_n)_{n \in \N}$ ist der exponential moving average der Folge $(x_n)_{n \in \N}$ mit dem Parameter $\frac{1}{2}$). 
+	
+	Man soll nun Folgendes zeigen: konvergiert $x_n$ für $n \to \infty$ gegen einen Wert $a \in \R$, so konvergiert $y_n$ für $n \to \infty$ gegen den selben Wert $a$. Unsere intuitive Beschreibung der Aufgabenstellung wäre: ist $x_n$ sehr nah an $a$ bei sehr großen $n$, so ist $y_n$ ebenfalls sehr nah an $a$ bei sehr großen an. Versuchen Sie nun alleine anhand dieser Intuition, die gestellte Aufgabe zu bearbeiten. Ihre erste Reaktion könnte dabei sein: ``Wo soll ich überhaupt anfangen?''. Die formale Definition des Grenzwerts überführt die Voraussetzung und die Behauptung, die man verifizieren soll, in eine ganz präzise Form, mit der man mathematisch präzise arbeiten kann. Die Aufgabe löst sich zwar dadurch nicht von selbst, aber zumindest weiß man durch den Formalismus konkret, was zu tun ist. 
+\end{bem}
+
 \begin{aufg}
 Der Quotient $a_n = f_{n+1} / f_n$ der aufeinanderfolgenden Fibonacci-Zahlen ist ebenfalls eine Folge, über deren Eigenschaften für große $n$ man reflektieren könnte. Rechnen Sie die ersten Zehn Glieder $a_1,\ldots,a_{10}$ dieser Folge mit Computer/Taschenrechner in Gleitkomma-Arithmetik aus. Was stellen Sie experimentell fest? Sieht es wie eine konvergente Folge aus? Was könnte der Grenzwert sein? 
 \end{aufg} 
@@ -1836,7 +1845,7 @@ Illustration für $f (x) := e^x -3x^2 + 2 x$ auf $[-1,4]$:
 \end{defn} 
 
 \begin{thm}[Über Approximation durch Taylor-Entwicklung]  
-	Sei $f : I \to \R$ $(n+1)$-mal stetig differenzierbare Funktion auf einem Intervall $i$  und $a$ ein innerer Punkt von $I$. Dann gilt für das Restglied $R_n(x)$ der Taylor-Entwicklung  der Ordnung $n$ bzgl. $a$ die asymptotische Abschätzung
+	Sei $f : I \to \R$ $(n+1)$-mal stetig differenzierbare Funktion auf einem Intervall $I$  und $a$ ein innerer Punkt von $I$. Dann gilt für das Restglied $R_n(x)$ der Taylor-Entwicklung  der Ordnung $n$ bzgl. $a$ die asymptotische Abschätzung
 	\[
 		R_n(x) = O( (x-a)^{n+1}), \qquad x \to a. 
 	\]
