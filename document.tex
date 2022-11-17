@@ -162,15 +162,13 @@ Die (klassische) \textbf{Mathematische Analysis} -- deren dieser Kurs gewidmet i
 \section{Grenzwerte von Folgen} 
 
 \begin{bem}[Intuitive Beschreibung des Grenzwertes] 
-	$a_n$ geht gegen ein $a \in \R$, für $n \to \rightarrow$, heißt intuitiv: 
+	Dass $a_n$ gegen ein $a \in \R$ für $n \to \infty$ geht, heißt intuitiv: 
 	
 	\begin{itemize}
-			\item[] Als $n \in \N$ groß wird, kommt $a_n$ beliebig nah an $a$ ran. 
+			\item[] Wird  $n \in \N$ immer größer, so kommt $a_n$ beliebig nah an $a$ ran. 
 	\end{itemize} 
 
-	Diese Beschreibung vermittelt die Idee und kann nützlich sein, mit ihr kann man aber nicht mathematisch exakt arbeiten, da es nicht in der formalen Sprache der Mathematik formuliert ist. Insbesondere besteht die Gefahr einer nicht-eindeutigen Interpretation. 
-	
-	Es gibt eine exakte mathematische Beschreibung, die man mit Hilfe von Ungleichungen und quantifizierten Prädikaten formulieren kann (Quantoren und Prädikate hatten wir in IT-1). 
+	Diese Beschreibung vermittelt die Idee und kann nützlich sein, mit ihr kann man aber oft nicht exakt arbeiten und es besteht die Gefahr, dass diese Beschreibung nicht eindeutig  interpretierbar ist. 
 \end{bem} 
 
 \begin{defn}[Grenzwert einer Folge] 
@@ -1741,10 +1739,24 @@ Illustration für $f (x) := e^x -3x^2 + 2 x$ auf $[-1,4]$:
 \section{Taylor-Entwicklung und Taylor-Reihen} 
 
 \begin{defn} 
-	Eine \textbf{Funktionsreihe} ist eine Ausdruck der Form $\sum_{k=0}^\infty g_k(x)$, in dem die Glieder $g_0(x),g_1(x),g_2(x),\ldots$ der Reihe Funktionen in $x$ sind. 
+	Eine \textbf{Funktionsreihe} ist ein formaler Ausdruck der Form $\sum_{k=0}^\infty g_k(x)$, in dem die Glieder $g_0(x),g_1(x),g_2(x),\ldots$ der Reihe Funktionen in $x$ sind. Die Funktionsreihe bestimmt eine Funktion in $x$, welche für all die Wahlen von $x$ definiert ist, bei denen die Reihe konvergent ist. 
 	
 	Die Funktionsreihen der Form $\sum_{k=0}^\infty a_k (x-c)^k$, die durch Konstanten $c$ und die Folge von Konstanten $a_0,a_1,a_2,\ldots$ gegeben sind,  nennt man \textbf{Potenzreihen}. Den Wert $c$ nennt man den \textbf{Entwicklungspunkt} der Potenzreihe. 
+	
+	Kurze Bemerkung zum Glied mit dem Index $k=0$: man setzt bei den Potenzreihen $(x-c)^0 = 1$ für alle $x$. Das heißt, man meint unter $(x-c)^0$ nichts anderes als die Konstante $1$. 
 \end{defn} 
+
+\begin{bem}
+	Partialsummen $\sum_{k=0}^n a_k (x-c)^k$ der Potenzreihen sind Polynome. Polynome lassen sich mit der Verwendung der arithmetischen Operationen $+$ und $\cdot$ auswerten und können daher in Computerberechnungen direkt eingesetzt werden. Die Potenzreihen beschreiben daher salopp gesagt Computer-taugliche Funktionen. 
+\end{bem} 
+
+
+\begin{bem}[Allgemeine Aufgaben/Fragestellungen] \ 
+	\begin{itemize}
+			\item Von Funktionen zu Polynomen und Potenzreihen: eine gegebene Funktion $f(x)$  mit Potenzreihen $\sum_{k=0}^\infty a_k (x-c)^k$ beschreiben und somit durch Polynome approximieren können. 
+			\item Von Potenzreihen zu Funktionen: wenn eine Potenzreihe $\sum_{k=0}^\infty a_k (x-c)^k$ vorliegt, für welche $x$ ist die Reihe  konvergent? Dadurch will man die Rahmenbedingungen beim Nutzen dieser Reihe verstehen. Nicht jede Wahl eines Wertes für $x$ muss eine konvergente Reihe ergeben. Man will also so weit es geht verstehen, welche Wahlen von $x$ eine konvergente Reihe ergeben und welche nicht. 
+	\end{itemize} 
+\end{bem} 
 
 
 \begin{bsp} 
@@ -1801,6 +1813,21 @@ Illustration für $f (x) := e^x -3x^2 + 2 x$ auf $[-1,4]$:
 	$T_n$ ist innerhalb von allen Polynomen vom Grad höchstens $n$ durch die Bedingung \eqref{T_n:bedingung} eindeutig bestimmt. 
 \end{bem} 
 
+\begin{bem}
+	$T_n(x)$ für $n=2,4,\ldots$ für $\cos(x)$ an der Stelle $a=0$. 
+	\begin{center}
+	\includegraphics[width=0.5\textwidth]{pics/taylor_cos.pdf}
+\end{center} 
+\end{bem} 
+
+\begin{bem}
+	Die Graphen von $x^k$ für $k=1,2,\ldots$. 
+	\begin{center}
+		\includegraphics[width=0.5\textwidth]{pics/powers.pdf}
+	\end{center} 
+	Je, größer $k$ ist, desto ``flacher'' geht der Graph in den Nullpunkt. D.h., die Funktionen $x^k$ haben verschiedene Größenordnungen bei $x \to 0$. 
+\end{bem} 
+
 
 \begin{bem}
 	Wir werden feststellen, dass unter gewissen Voraussetzung der Unterschied zwischen $T_n(x)$ und $f(x)$ sehr klein ist, wenn $x$ nah am Entwicklungspunkt $a$ liegt. 
@@ -1838,7 +1865,6 @@ Illustration für $f (x) := e^x -3x^2 + 2 x$ auf $[-1,4]$:
 \begin{aufg}
 	Finden Sie ein $p \in \R$ derart, dass $\sqrt{1+x} - \sqrt{1-x} = \Theta (x^p)$ für $x \to 0$ gilt. 
 \end{aufg} 
-
 
 \begin{defn}
 	Eine Funktion $f: X \to \R$ auf $X \subseteq \R$ nennt man \textbf{$n$-mal stetig differenzierbar}, wenn die Ableitungen $f, f',\ldots, f^{(n)}$ stetige Funktionen auf $X$ sind. 
