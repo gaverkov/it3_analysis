@@ -805,28 +805,28 @@ mit den Gliedern $c_0,c_1,c_2,\ldots$ definiert.
 	$\Rightarrow$ die Reihe $\sum_{k=1}^\infty \frac{1}{\ln k}$ ist divergent. 
 \end{bsp} 
 
-\begin{thm}[Quotientenkriterium für Konvergenz] 
-	Gibt es für $\sum_{k=0}^\infty a_k$ Werte $k_0 \in \N$ und $0 \le q < 1$ derart, dass $\frac{|a_{k+1}|}{|a_k|} \le q$ für alle $k \ge k_0$ erfüllt ist, dann ist diese Reihe absolut konvergent. 
-\end{thm} 
+%\begin{thm}[Quotientenkriterium für Konvergenz] 
+%	Gibt es für $\sum_{k=0}^\infty a_k$ Werte $k_0 \in \N$ und $0 \le q < 1$ derart, dass $\frac{|a_{k+1}|}{|a_k|} \le q$ für alle $k \ge k_0$ erfüllt ist, dann ist diese Reihe absolut konvergent. 
+%\end{thm} 
 
-\begin{bsp} 
-	$\sum_{k=1}^\infty \underbrace{\frac{k}{3^k}}_{= a_k}$ ist nach dem Quotientenkriterium konvergent, denn 
-	\[
-		\frac{|a_{k+1}|}{|a_k|} = \frac{(k+1) 3^k }{3^{k+1} k} = \left( 1 + \frac{1}{k} \right) \frac{1}{3} \le \underbrace{\frac{2}{3}}_{= q} < 1. 
-	\]
-\end{bsp} 
-
-\begin{thm}[Quotientenkriterium für Divergenz] 
-	Gibt es für $\sum_{k=0}^\infty a_k$  Werte $k_0 \in \N$ und $q> 1$ derart, dass $\frac{|a_{k+1}|}{|a_k|} \ge q$ für alle $k \ge k_0$ erfüllt ist, dann ist diese Reihe divergent. 
-\end{thm} 
-
-\begin{thm}[Quotientenkriterium für Konvergenz in der Grenzwertform]
+\begin{thm}[Quotientenkriterium für Konvergenz]
 	Gilt für die Reihe $\sum_{k=0}^n a_k$ die Ungleichung 
 	\[
-		\lim_{k \to \infty} \frac{|a_{k+1}|}{|a_k|} < 1,
+	\lim_{k \to \infty} \frac{|a_{k+1}|}{|a_k|} < 1,
 	\]
 	dann ist diese Reihe absolut konvergent. 
 \end{thm} 
+
+
+
+%\begin{bsp} 
+%	$\sum_{k=1}^\infty k/3^k$ ist nach dem Quotientenkriterium konvergent.
+%\end{bsp} 
+
+%\begin{thm}[Quotientenkriterium für Divergenz] 
+%	Gibt es für $\sum_{k=0}^\infty a_k$  Werte $k_0 \in \N$ und $q> 1$ derart, dass $\frac{|a_{k+1}|}{|a_k|} \ge q$ für alle $k \ge k_0$ erfüllt ist, dann ist diese Reihe divergent. 
+%\end{thm} 
+
 
 \begin{bsp}
 	$\sum_{k=1}^\infty \underbrace{ \frac{k}{q^k} }_{=a_k}$ ist nach dem Quotientenkriterium konvergent für jedes $0 \le q < 1$, denn
@@ -850,6 +850,10 @@ mit den Gliedern $c_0,c_1,c_2,\ldots$ definiert.
 		\item[] $\sum_{k=1}^\infty \frac{1}{k^2}$ ist konvergent. 
 	\end{itemize} 
 \end{bem} 
+
+\begin{thm}[Wurzelkriterium] % Seite 65, Theorem 3.33 in Rudin 
+	Eine  Reihe $\sum_{k=1}^\infty a_k$ mit reellwertigen Gliedern und $q := \lim_{k \to \infty} |a_k|^{1/k} \in [0,\infty)$ ist bei $0 \le q <1 $ konvergent und bei $1 < q  \le \infty$ divergent. 
+\end{thm} 
 
 \chapter{Grenzwerte und Stetigkeit von Funktionen} 
 
@@ -1376,6 +1380,18 @@ Differentialrechnung für Funktionen einer Variablen
 	 \textbf{Hinweis:} obwohl $|x|$ durch eine Fallunterscheidung definiert ist, hat man eine Formel für die Ableitung von $\ln |x|$, die keine Fallunterscheidung benötigt. 
 \end{aufg} 
 
+\begin{aufg}
+	Die folgenden Funktionen gehören zu den Funktionen, die  in künstlichen neuronalen Netzwerken als die sogenannten Aktivierungskfunktionen benutzt werden: 
+	\begin{align*}
+			\text{Tangens hyperbolikus} & & \tanh (x)  = \frac{e^x - e^{-x}}{e^x + e^{-x}}
+\\ \text{Logistische Funktion} & & \frac{1}{1 +e^{-x}}
+\\			\text{Softplus} & & \ln(1+ e^x)  
+\\ \text{sigmoid linear unit} & & \frac{x}{1+ e^{-x}}
+\\  \text{Gauß-Glocke} & & e^{-x^2}
+	\end{align*} 
+Berechnen Sie die Ableitungen der aufgelisteten Funktionen.
+\end{aufg} 
+
 \begin{thm}[Regel von l'Hospital]
 	Seien $f, g : X \to \R$ differenzierbare Funktionen. Sei $a \in \R$ Häufungspunkt von $X$ oder $a=\infty$ und $X$ nach oben unbeschränkt oder $a = -\infty$ und $X$ nach unten unbeschränkt. Sei $\lim_{x \to a} f(x) = \lim_{x \to a} g(x) = 0$ oder $\lim_{x \to a} |f(x)| = \lim_{x \to a} |g(x)| = \infty$. 
 	
@@ -1870,7 +1886,7 @@ Illustration für $f (x) := e^x -3x^2 + 2 x$ auf $[-1,4]$:
 	Eine Funktion $f: X \to \R$ auf $X \subseteq \R$ nennt man \textbf{$n$-mal stetig differenzierbar}, wenn die Ableitungen $f, f',\ldots, f^{(n)}$ stetige Funktionen auf $X$ sind. 
 \end{defn} 
 
-\begin{thm}[Über Approximation durch Taylor-Entwicklung]  
+\begin{thm}[Ordnung der Approximation durch Taylor-Entwicklung]  
 	Sei $f : I \to \R$ $(n+1)$-mal stetig differenzierbare Funktion auf einem Intervall $I$  und $a$ ein innerer Punkt von $I$. Dann gilt für das Restglied $R_n(x)$ der Taylor-Entwicklung  der Ordnung $n$ bzgl. $a$ die asymptotische Abschätzung
 	\[
 		R_n(x) = O( (x-a)^{n+1}), \qquad x \to a. 
@@ -1881,6 +1897,10 @@ Illustration für $f (x) := e^x -3x^2 + 2 x$ auf $[-1,4]$:
 	\]
 \end{thm} 
 
+\begin{bsp}
+	Die Taylor-Approximation $\sqrt{1+x} = 1 + \frac{1}{2} x + O(x^2)$ für $x \to 0$ wird in der Optik bei der Herleitung der Gleichung einer sphärischen Linse benutzt (Abhängigkeit der Brennweite von den beiden Radien -- \url{https://en.wikipedia.org/wiki/Thin_lens}).
+\end{bsp} 
+
 \begin{bem}
 	Interessante Spezialfälle sind die lineare Approximation
 	\[
@@ -1888,7 +1908,7 @@ Illustration für $f (x) := e^x -3x^2 + 2 x$ auf $[-1,4]$:
 	\]
 	und die quadratische Approximation
 	\[
-		f(x) = f(a) + f'(a)(x-a) + \frac{1}{2} f''(x) (x-a) + O((x-a)^3), \qquad x \to a. 
+		f(x) = f(a) + f'(a)(x-a) + \frac{1}{2} f''(a) (x-a)^2 + O((x-a)^3), \qquad x \to a. 
 	\]
 	Die notwendigen und hinreichenden der Bedingungen der Optimalitität erhält man aus diesen Approximationen. 
 \end{bem}
@@ -1954,12 +1974,9 @@ Illustration für $f (x) := e^x -3x^2 + 2 x$ auf $[-1,4]$:
 \end{bsp} 
 
 \begin{aufg}
-	Rechnen Sie $T_\infty(x)$ bzgl. der Entwicklungsstelle $a=0$ für die  Funktionen $e^x, \cos x, \sin x$ und $\frac{1}{1-x}$ aus: 
+	Rechnen Sie $T_\infty(x)$ bzgl. der Entwicklungsstelle $a=0$ für die  Funktionen $e^x, \cos x, \sin x$ und $\frac{1}{1-x}$ und für $\ln x$ bzgl. der Entwicklungsstelle $a=1$ aus: 
 \end{aufg} 
 
-\begin{aufg}
-	Rechnen Sie $T_\infty(x)$ bzgl. der Entwicklungsstelle $a=0$ für $\ln x$ aus. 
-\end{aufg} 
 
 %\begin{bem}
 %	Ein isolierter Punkt der Menge hält einen Mindestabstand zu allen anderen Punkten der Menge: Nicht unbedingt $1{,}5$ Meter, aber zumindest ein festes $\epsilon>0$. 
@@ -2033,7 +2050,7 @@ Illustration für $f (x) := e^x -3x^2 + 2 x$ auf $[-1,4]$:
 \end{thm} 
 
 \begin{bsp} 
-	Die Potenzreihe $\sum_{k=0}^\infty \frac{(-1)^k}{k} x^k$ hat den Konvergenzbereich $(-1,1]$.  
+	Die Potenzreihe $\sum_{k=1}^\infty \frac{(-1)^k}{k} x^k$ hat den Konvergenzbereich $(-1,1]$.  
 	
 	Begründung: 
 	\begin{enuma}
@@ -2153,7 +2170,15 @@ Illustration für $f (x) := e^x -3x^2 + 2 x$ auf $[-1,4]$:
 \end{thm} 
 
 \begin{bsp} 
-	Der Konvergenzradius von $\sum_{k=0}^\infty \frac{1}{k!} x^k$ ist $\infty$. 
+	Der Konvergenzradius von $\sum_{k=0}^\infty \frac{1}{k!} x^k$ ist $\infty$. Das kann man auf die folgenden Weise ausrechnen. Einerseits gilt 
+	\[
+		\lim_{k \to \infty} \frac{1/k!}{1/(k+1)!} = \lim_{k \to \infty} (k+1) = \infty. 
+	\]
+	Anderseits gilt auch 
+	\begin{equation} \label{k-te-wurzel-fakultaet}
+		\lim_{k \to \infty} k!^{1/k} = \infty. 
+	\end{equation} 
+	Den vorigen Grenzwert kann man so ausrechnen: $k!$ ist das Produkt der Zahlen $1$ bis $k$. Betrachten wir zuerst den Fall, dass $k$ gerade ist. Dann sind die Zahlen $k/2,\ldots, k$ in diesem Produkt nach unten durch $k/2$ abschätzbar. Da es mindestens $k/2$ Zahlen sind, die wir durch $k/2$ abschätzen, gilt $k! \ge (k/2)^{k/2}$, sodass $k!^{1/k} \ge \sqrt{k/2}$ erfüllt ist. Für ein ungerades $k$ kann man die Zahlen $(k+1)/2,\ldots, k$ durch $k/2$ nach unten abschätzen. Es sind ebenfalls mindestens $k/2$ Zahlen, sodass man auch in diesem Fall die Abschätzung $k!^{1/k} \ge \sqrt{k/2}$ erhält. Da man $\sqrt{k/2} \to \infty$ bei $k \to \infty$ hat, ist \eqref{k-te-wurzel-fakultaet} tatsächlich erfüllt. 
 \end{bsp} 
 
 \begin{bsp} 
@@ -2161,13 +2186,13 @@ Illustration für $f (x) := e^x -3x^2 + 2 x$ auf $[-1,4]$:
 \end{bsp} 
 
 \begin{thm}
-	Sei $\sum_{k=0}^\infty a_k (x-c)^k$ Potenzreihe und sei Konvergenzradius $\rho$ dieser Reihe ungleich $0$, d.h., $\rho \in (0,\infty]$. Dann ist $g(x) = \sum_{k=0}^\infty a_k (x-c)^k$ im Bereich $(c-\rho,c+\rho)$ beliebig oft differenzierbar. Darüber hinaus gilt:  
+	Sei $\sum_{k=0}^\infty a_k (x-c)^k$ Potenzreihe und sei $\rho$ Konvergenzradius  dieser Reihe mit $0< \rho < \infty$. Dann ist die Funktion $f(x) := \sum_{k=0}^\infty a_k (x-c)^k$ im Bereich $(c-\rho,c+\rho)$ beliebig oft differenzierbar. Darüber hinaus gilt:  
 	\begin{itemize} 
-	\item Die	$i$-te Ableitung $g^{(i)} (x)$ mit $i \in \N$ lässt als eine Potenzreihe durch gliederweises Differenzieren der Reihe $\sum_{k=0}^\infty a_k (x-c)^k$ darstellen. Das heißt, die Reihe $\sum_{k=0}^\infty ( a_k (x-c)^k)^{(i)}$ ist absolut konvergent in $(-\rho + c,c+\rho)$ mit
+	\item Die	$i$-te Ableitung $f^{(i)} (x)$ mit $i \in \N$ lässt als eine Potenzreihe durch das gliederweise Differenzieren der Reihe $\sum_{k=0}^\infty a_k (x-c)^k$ darstellen. Das heißt, die Reihe $\sum_{k=0}^\infty ( a_k (x-c)^k)^{(i)}$ ist absolut konvergent in $(-\rho + c,c+\rho)$ mit
 	\[
-		g^{(i)}( x) = \sum_{k=0}^\infty \bigl( a_k (x-c)^k \bigr)^{(i)}.
+		f^{(i)}( x) = \sum_{k=0}^\infty \bigl( a_k (x-c)^k \bigr)^{(i)}.
 	\]
-	\item Man hat $a_k = \frac{g^{(k)}(c)}{k!}$ für alle $k \in \N$. 
+	\item Man hat $a_k = \frac{f^{(k)}(c)}{k!}$ für alle $k \in \N$. Mit anderen Worten ist $f(x) = T_\infty(x)$ für die Taylor-Reihe von $f$ bzgl. des Entwicklungpunkts $c$.  
 	\end{itemize} 
 \end{thm} 
 
@@ -2294,6 +2319,14 @@ Wir entwickeln $\frac{1}{x^2 - 5 x + 6}$ in eine Potenzreihe bzgl. des Entwicklu
 	gilt für $x \in (-2,2)$. 
 \end{bsp} 
 
+\begin{bem}
+	Die rationale Funktion $f(z):=\frac{1}{(2-z)(3-z)}$ hat Polstellen in $2$ und $3$ ind er komplexen Ebene $\C$. Die Entfernung der Polstelle, die am nächsten zur $0$ liegt bestimmt den Konvergenzradius. 
+	\begin{center}
+	\includegraphics[width=0.5\textwidth]{pics/complex_plot_rational.pdf} 
+	\end{center} 
+	Im Bild beschreibt der Farbton das Argument und die Helligkeit den Betrag von $f(z)$. 
+\end{bem} 
+
 \section{Exkurs in komplexwertige  Funktionen} 
 
 \begin{bem} 
@@ -2308,10 +2341,11 @@ Wir entwickeln $\frac{1}{x^2 - 5 x + 6}$ in eine Potenzreihe bzgl. des Entwicklu
 		f(z) = \sum_{k=0}^\infty (-1)^k z^{2 k}
 	\]
 	für alle $z \in \C$ mit $|z| < 1$.  Die komplexen Polstellen $z = \pm \iu$ mit $|z|=1$ sind Nachweis dafür, dass der Konvergenzradius nicht größer als $1$ sein kann. 
+
+	\begin{center}
+	\includegraphics[width=0.5\textwidth]{pics/complex_plot_rational_2.pdf} 
+\end{center} 
 	
-	\begin{center} 
-		\includegraphics[width=0.3\textwidth]{pics/WolframComplexPlot.png}
-	\end{center} 
 \end{bsp} 
 
 \begin{bem}
@@ -5337,6 +5371,18 @@ TODO: KKT für eine Gleichheitsbedingung. KKT für mehrere Gleichheitsbedingunge
 	Wenn man über einen Bereich integriert, der nicht als Normalbereich darstellbar ist, kann man versuchen, den Bereich in eine Vereinigung nicht-überlappender Normalbereiche zu zerlegen. 
 \end{bem} 
 
+\begin{bsp}
+	Durch die Anwendung des Satzes vom Fubini bei der Berechnung des (ueigentlichen) Integrals
+	\[
+		\int_{[0,\infty)^2} e^{-x y} \sin x \dd x
+	\]	
+	lässt sich das sogenannte Dirichlet-Integral 
+	\[
+		\int_{-\infty}^\infty \frac{\sin x }{x} \dd x  = \pi
+	\]
+	bestimmen. 
+\end{bsp} 
+
 \section{Substitution beim mehrdimensionalen Integrieren} 
 
 \begin{thm} 
@@ -5356,7 +5402,18 @@ TODO: KKT für eine Gleichheitsbedingung. KKT für mehrere Gleichheitsbedingunge
 	Polarkoordinaten. TODO
 \end{bsp} 
 
-TODO 
+\begin{bsp}
+	Durch die Anwendung von Polarkoordinaten beim Berechnen des (uneigentlichen) zweidimensionalen Integrals 
+	\[
+		\int_{\R^2} e^{ - \frac{1}{2} (x^2 + y^2) } \dd x \dd y
+	\]
+	lässt sich das sogenannte Gauß-Integral 
+	\[
+		\int_{-\infty}^\infty e^{-\frac{1}{2} x^2}  \dd x = \sqrt{ 2 \pi}
+	\]
+	bestimmen. Das zeigt, dass die Funktion $\frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2} x^2}$ Dichte einer Zufallsvariablen ist (einer standardnormalverteilten  Variablen). 
+\end{bsp} 
+
 
 \chapter{Anwendungen der Analysis} 
 
