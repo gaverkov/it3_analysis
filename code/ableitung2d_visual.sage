@@ -37,3 +37,14 @@ for t in linspace(0.,1.,200):
     my_movie.append(plot_zerl_dict(lin_approx_of_2d_transform(F,zerl_dict,[x,y])))
 
 animate(my_movie,axes=False) #.save("ableitung_2d_approx_coarse.gif")
+
+var('r,phi')
+my_movie=[]
+
+zerl_dict = product_zerlegung_dict(linspace(0.,3.,4),linspace(0.,pi.n()/2,4))
+
+for t in linspace(0.,1.,48):
+    F = [ (1-t)*r + t*r*cos(phi),(1-t)*phi +  t*r*sin(phi)]
+    my_movie.append(plot_zerl_dict(lin_approx_of_2d_transform(F,zerl_dict,[r,phi])))
+
+animate(my_movie,axes=False,aspect_ratio=1) #.save("ableitung_polar_coarse.gif")
