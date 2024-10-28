@@ -1,2 +1,5 @@
 If you want to remove the last commit and discard the changes entirely:
 git reset --hard HEAD~1
+
+See the files under version control:
+git ls-files
