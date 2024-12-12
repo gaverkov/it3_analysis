@@ -19,15 +19,11 @@ jobs:
 
     steps: 
     - id: UpdateAndInstallTexlive
-      run: "sudo apt update && sudo apt install make curl hub wget pdfgrep texlive-base texlive-latex-base texlive-latex-extra texlive-science texlive-xetex texlive-latex-recommended texlive-publishers texlive-pictures texlive-lang-german -y"
+      run: "sudo apt update && sudo apt install make curl hub wget pdfgrep texlive-base texlive-latex-base texlive-latex-extra texlive-science texlive-xetex texlive-latex-recommended texlive-publishers texlive-pictures texlive-lang-german texlive-extra-utils  -y"
     
     - id: CloneRepo
       run: "git clone https://github.com/$OWNER/$REPONAME.git"
-      
-    - id: RetrievingPdfjam
-      working-directory: ${{env.REPONAME}} 
-      run: "wget https://raw.githubusercontent.com/rrthomas/pdfjam/master/bin/pdfjam ; chmod +x pdfjam ; sudo cp pdfjam /usr/local/bin/ ; true"
-      
+           
     - id: GeneratePdfFiles
       working-directory: ${{env.REPONAME}} 
       run: "make all"
